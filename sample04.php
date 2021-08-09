@@ -19,8 +19,7 @@
 <h2>Practice</h2>
 <pre>
 <?php
-date_default_timezone_set('Asia/Tokyo');
-print(date('現在は' . 'G時 i分 s秒'));
+
 ?>
 </pre>
 </main>
