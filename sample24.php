@@ -22,6 +22,7 @@
   <?php
   setcookie('save_message', 'Cookieに保存した値です', time() + 60 * 60 * 24 * 14)
   ?>
+</table>
 </pre>
 </main>
 </body>
