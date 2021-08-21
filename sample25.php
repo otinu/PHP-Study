@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['session_message'] = '値をセッションに保存しました';
+?>
 <!doctype html>
 <html lang="ja">
 <head>
@@ -18,10 +22,6 @@
 <main>
 <h2>Practice</h2>
 <pre>
-<table>
-  <?php
-  setcookie('save_message', 'Cookieに保存した値です', time() + 60 * 60 * 24 * 14)
-  ?>
 </pre>
 </main>
 </body>
