@@ -24,6 +24,14 @@ $password = 'root';
 
 require('dbconnect.php');
 
+if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
+  $page = $_REQUEST['page'];
+} else {
+  $page = 1;
+}
+$page = $_REQUEST['page'];
+$start = 5 * ($page - 1);
+
 /* Chapter58
 $count = $db->exec('INSERT INTO my_items SET maker_id=1, item_name="もも", price=210, keyword="缶詰、ピンク、甘い"');
 echo $count . '件のデータを挿入しました';
@@ -37,7 +45,9 @@ while ($record = $records->fetch()) {
 }
 */
 
-$memos = $db->query('SELECT * FROM memos ORDER BY id DESC');
+$memos = $db->prepare('SELECT * FROM memos ORDER BY id DESC LIMIT ?, 5');
+$memos->bindParam(1, $start, PDO::PARAM_INT);
+$memos->execute(array($_REQUEST));
 ?>
 
 <article>
