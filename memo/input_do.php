@@ -26,17 +26,20 @@
  try {
    $db = new PDO($dsn, $user, $password);
 
-   $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
+  
+  $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
    // $statement->execute(array($_POST['memo']));
 
-   /*
+   
    $statement->bindParam(1, $_POST['memo']);
    $statement->execute();
-   */
-   echo 'メッセージが登録されました';
+   
+  echo 'メッセージが登録されました';
+  
  } catch(PDOException $e) {
    echo 'DB接続エラー: ' . $e->getMessage();
  }
+
 ?>
 </pre>
 </main>
