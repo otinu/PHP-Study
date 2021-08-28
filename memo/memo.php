@@ -22,11 +22,7 @@ $dsn = 'mysql:dbname=mydb;host=localhost;port=8889';
 $user = 'root';
 $password = 'root';
 
-try {
-  $db = new PDO($dsn, $user, $password);
-} catch(PDOException $e) {
-  echo 'Connection failed: ' . $e->getMessage();
-} 
+require('dbconnect.php');
 
 $id = $_REQUEST['id'];
 if (!is_numeric($id) || $id <= 0 ) {

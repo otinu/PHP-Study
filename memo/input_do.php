@@ -22,9 +22,17 @@
  $dsn = 'mysql:dbname=mydb;host=localhost;port=8889';
  $user = 'root';
  $password = 'root';
+
+ require('dbconnect.php');
  
+ $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
+ $statement->bindParam(1, $_POST['memo']);
+ $statement->execute();
+ echo 'メッセージが登録されました';
+?>
+ /*
  try {
-   $db = new PDO($dsn, $user, $password);
+  $db = new PDO($dsn, $user, $password);
 
   
   $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
@@ -40,7 +48,7 @@
    echo 'DB接続エラー: ' . $e->getMessage();
  }
 
-?>
+ */
 </pre>
 </main>
 </body>
